@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ivml/lerna-repro/compare/second-project@1.1.0...second-project@1.3.0) (2023-12-04)
+
+
+### Bug Fixes
+
+* drop signing flags from lerna version ([f71d1f3](https://github.com/ivml/lerna-repro/commit/f71d1f33f55da45e3f61d640395f31eeb1a10982))
+
+
+### Features
+
+* added more headings and bumped lerna to 8.0.0 ([606cf31](https://github.com/ivml/lerna-repro/commit/606cf3123940e7f44de01d21ec9fd91af4f1c1f2))
+
+
+
+
+
 # [1.2.0](https://github.com/ivml/lerna-repro/compare/second-project@1.1.0...second-project@1.2.0) (2023-12-04)
 
 
