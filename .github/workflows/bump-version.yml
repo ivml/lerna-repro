@@ -49,6 +49,6 @@ jobs:
           git config tag.gpgsign true
           git config user.signingkey ${GPG_KEY_ID}
 
-          yarn lerna version --conventional-commits --message "chore: bump version" --force-git-tag --sign-git-commit --sign-git-tag --yes --loglevel silly
+          yarn lerna version --conventional-commits --message "chore: bump version" --force-git-tag --yes --loglevel silly
 
           git push origin main --follow-tags
