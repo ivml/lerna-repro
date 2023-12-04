@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ivml/lerna-repro/compare/second-project@1.3.0...second-project@1.3.1) (2023-12-04)
+
+
+### Bug Fixes
+
+* revert to lerna 7.2.0 and sign commits and tags again ([1b7f91c](https://github.com/ivml/lerna-repro/commit/1b7f91c4e57912407718d98d22855cd051b20f00))
+
+
+
+
+
 # [1.3.0](https://github.com/ivml/lerna-repro/compare/second-project@1.1.0...second-project@1.3.0) (2023-12-04)
 
 
