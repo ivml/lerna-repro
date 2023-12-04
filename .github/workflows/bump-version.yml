@@ -1,0 +1,54 @@
+name: Semantic versioning
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump:
+    name: Bump versions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          registry-url: https://npm.pkg.github.com
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --network-timeout 100000
+
+      - name: Delete cache
+        run: rm -rf node_modules/.cache
+
+      - name: Import GPG Key
+        run: |
+          echo "$GPG_SECRET" | base64 --decode | gpg --import -
+        env:
+          GPG_SECRET: ${{ secrets.GPG_BASE64 }}
+
+      - name: Setup Git environment, run lerna version, commit
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          EMAIL: ${{ secrets.EMAIL }}
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "${USERNAME}"
+          git config user.email "${EMAIL}"
+          git config commit.gpgsign true
+          git config tag.gpgsign true
+          git config user.signingkey ${GPG_KEY_ID}
+
+          yarn lerna version 1.0.0 --force-git-tag --yes --loglevel silly
+
+          git push origin main --follow-tags
